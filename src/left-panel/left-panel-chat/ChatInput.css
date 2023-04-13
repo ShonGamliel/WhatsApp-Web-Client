@@ -1,0 +1,68 @@
+#chat-input {
+  background-color: #f0f2f5;
+  padding: 10px 16px 10px 16px;
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+#chat-input-buttons {
+  display: flex;
+}
+
+#chat-input-text {
+  cursor: text;
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  /* display: flex; */
+  /* align-items: center; */
+  border: none;
+  outline: none;
+  padding: 14px;
+  padding-top: 10px;
+  direction: rtl;
+  /* font-size: 0.9375rem; */
+  font-size: 0.9375rem;
+  color: #3b4a54;
+
+  max-height: 7.35em;
+  min-height: 1.47em;
+  /* white-space: pre-wrap; */
+  word-break: break-word;
+  overflow-y: auto;
+  text-align: right;
+}
+
+#chat-input-text:empty::before {
+  content: "הקלדת ההודעה";
+  /* font-size: 0.9375rem; */
+  font-weight: 400;
+  color: #7b7d82;
+}
+
+#chat-input:has(#chat-input-text:empty) #chat-input-send {
+  display: none;
+}
+
+#chat-input:not(:has(#chat-input-text:empty)) #chat-input-mic {
+  display: none;
+}
+
+#chat-input-send{
+  transform: rotate(180deg);
+}
+
+.chat-input-button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.chat-input-button {
+  cursor: pointer;
+  border-radius: 50%;
+  min-width: 40px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

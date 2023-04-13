@@ -1,0 +1,85 @@
+.message {
+  border-radius: 7.5px;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  padding: 6px 9px 8px 7px;
+  display: flex;
+  position: relative;
+  max-width: 65%;
+}
+
+.message-quote {
+  position: absolute;
+  top: 0;
+  display:none;
+}
+
+.outcome .message-quote {
+  left: -8px;
+}
+
+.income .message-quote {
+  right: -8px;
+}
+
+.outcome {
+  /* border-top-left-radius: 0; */
+  background-color: #d9fdd3;
+  align-self: flex-end;
+}
+
+.income {
+  /* border-top-right-radius: 0; */
+  background-color: white;
+  align-self: flex-start;
+}
+
+.message-time {
+  color: #667781;
+  font-size: 0.6875rem;
+}
+
+.message-details {
+  float: left;
+  margin: 10px 8px -5px -2px;
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  align-self: flex-end;
+}
+
+.message-text {
+  direction: rtl;
+  font-size: 14.2px;
+  color: #111b21;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.message-options {
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.2s;
+  opacity: 0;
+}
+
+.outcome .message-options {
+  background-color: #d9fdd3;
+}
+
+.income .message-options {
+  background-color: white;
+}
+
+.message:hover .message-options {
+  opacity: 1;
+}

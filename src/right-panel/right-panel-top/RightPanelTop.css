@@ -1,0 +1,33 @@
+#right-panel-top {
+    width: 100%;
+    background-color: #f0f2f5;
+    padding: 10px 16px 9px 17px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  #right-panel-top-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  #right-panel-top-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .right-panel-top-button:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .right-panel-top-button {
+    cursor: pointer;
+    border-radius: 50%;
+    min-width: 40px;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

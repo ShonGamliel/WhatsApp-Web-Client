@@ -1,0 +1,80 @@
+.chat-preview {
+  display: flex;
+  padding: 10px 12px 0px 12px;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.chat-preview:not(.chat-preview-selected):hover {
+  background-color: #f5f6f6;
+}
+
+.chat-preview-options {
+  opacity: 0;
+  transition: 0.1s;
+  display: none;
+}
+
+.chat-preview:hover .chat-preview-inner .chat-preview-bottom .chat-preview-options {
+  display: inline-block;
+  opacity: 1;
+}
+
+.chat-preview-selected {
+  background-color: #f0f2f5;
+}
+
+.chat-preview-top,
+.chat-preview-bottom {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 2px;
+}
+
+.chat-preview-inner {
+  padding-left: 10px;
+  padding-bottom: 14px;
+  border-bottom: solid 1px #e9edef;
+
+  width: 100%;
+}
+
+.chat-preview-img {
+  height: 49px;
+  width: 49px;
+  border-radius: 50%;
+}
+
+.chat-preview-time {
+  align-self: flex-end;
+  color: #667781;
+  font-size: 12px;
+}
+
+.chat-preview-details-name {
+  font-size: 17px;
+  font-weight: 400;
+  color: #111b21;
+}
+
+.chat-preview-details-message {
+  color: #667781;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.chat-preview-messages-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #25d366;
+  border-radius: 50%;
+  min-width: 1.6em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding:2px;
+}

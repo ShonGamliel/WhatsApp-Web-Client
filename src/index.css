@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "Segoe UI Historic";
+  src: local("Arial");
+  unicode-range: U+530-5f4, U+10a0-10ff;
+}
+@font-face {
+  font-family: "Segoe UI Historic";
+  font-weight: 700;
+  src: local("Arial Bold"), local("Arial");
+  unicode-range: U+530-5f4, U+10a0-10ff;
+}
+
+* {
+  font-family: Segoe UI, Helvetica Neue, Helvetica, Lucida Grande, Arial, Ubuntu, Cantarell, Fira Sans, sans-serif;
+  color: #3b4a54;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* direction: rtl; */
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c3c1bc;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+:hover::-webkit-scrollbar-thumb {
+  background-color: #c3c1bc;
+}
+
+/* :hover::-webkit-scrollbar-track {
+  
+} */
+
+html,
+body,
+#root,
+#container {
+  height: 100%;
+  width: 100%;
+}

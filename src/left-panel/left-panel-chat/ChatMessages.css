@@ -1,0 +1,65 @@
+#chat-messages {
+  height: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-y: auto;
+  background-color: #efeae2;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-end; */
+  padding: 20px 65px 20px 65px;
+  gap: 2px;
+  direction: rtl;
+}
+
+#chat-messages > :first-child {
+  margin-top: auto;
+}
+
+.date-between-messages {
+  background-color: #fefefe;
+  margin: 10px 0 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+  padding: 6px 12px 9px 12px;
+  box-shadow: 0 1px 0.5px rgba(11, 20, 26, 0.13);
+  font-size: 12.5px;
+  color: #54656f;
+  border-radius: 7.5px;
+  align-self: center;
+}
+
+.outcome-messages,
+.income-messages {
+  margin-top: 10px;
+  /* width:100%; */
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.income-messages > :first-child .message-quote {
+  display: block;
+}
+
+.income-messages .message {
+  border-top-right-radius: 7.5px;
+}
+
+.income-messages :first-child {
+  border-top-right-radius: 0;
+}
+
+.outcome-messages > :first-child .message-quote {
+  display: block;
+}
+
+.outcome-messages .message {
+  border-top-left-radius: 7.5px;
+}
+
+.outcome-messages :first-child {
+  border-top-left-radius: 0;
+}

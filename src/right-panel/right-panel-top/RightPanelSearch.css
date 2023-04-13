@@ -1,0 +1,42 @@
+#right-panel-search {
+  padding: 7.5px 12px 7.5px 12px;
+  border-bottom: solid 1px #e9edef;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#right-panel-search-input {
+  display: flex;
+  align-items: center;
+  background-color: #f0f2f5;
+  height: 34.5px;
+  /* width: 100%; */
+  /* min-width: 100%; */
+  border-radius: 8px;
+  padding: 0 12px 0 8px;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#right-panel-search-input-text {
+  width: 72%;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  padding: 2px;
+  direction: rtl;
+  /* font-size: 0.9375rem; */
+  font-size: 14px;
+  color: #3b4a54;
+  cursor: text;
+}
+
+#right-panel-search-input-text:empty::before {
+  content: "חיפוש או התחלת צ'אט חדש";
+  /* font-size: 0.9375rem; */
+  font-weight: 400;
+  color: #7b7d82;
+  white-space: nowrap;
+}
