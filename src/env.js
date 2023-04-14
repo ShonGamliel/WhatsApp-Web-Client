@@ -1,3 +1,3 @@
-export const ip = "http://192.168.77.193:3002";
-export const socketIP = "192.168.77.193:8080";
+export const ip = "https://whatsapp-web-server-ptcr.onrender.com";
+export const socketIP = "whatsapp-web-server-ptcr.onrender.com";
 export const breakWidth = 576;
