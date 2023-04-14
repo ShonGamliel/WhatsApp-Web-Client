@@ -77,20 +77,53 @@ export default function ChatMessages({ setMessagesFromDB, messagesFromDB, newMes
     return date1.getFullYear() === date2.getFullYear() && date1.getMonth() === date2.getMonth() && date1.getDate() === date2.getDate();
   };
 
+  const isDayBefore = (past, future) => {
+    // Create a Date object for the current time
+    const now = new Date(future);
+
+    // Create a Date object for yesterday at midnight
+    const yesterday = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+
+    // Check if the given date is after yesterday at midnight and before today at midnight
+    function isYesterday(date) {
+      return date > yesterday && date < now;
+    }
+
+    // Example usage
+    const someDate = new Date(past); // April 13th, 2023 at noon
+    return isYesterday(someDate);
+  };
+
+  const isSameWeek = (past, future) => {
+    const givenDate = new Date(past);
+
+    const currentDate = new Date(future);
+    const givenTimestamp = givenDate.getTime();
+    const currentTimestamp = currentDate.getTime();
+    const diff = currentTimestamp - givenTimestamp;
+    const oneDay = 24 * 60 * 60 * 1000 + 1;
+
+    if (diff >= oneDay && diff < 6 * oneDay) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+
   const formatDate = (timestamp) => {
     const date = new Date(timestamp); // Convert to milliseconds
     const now = new Date();
-    const diffInDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
 
-    if (diffInDays === 0) {
-      if (isSameDate(date, now)) {
-        return "היום";
-      } else {
-        return "אתמול";
-      }
-    } else if (diffInDays === 1) {
+    const isToday = isSameDate(date, now);
+    const isYesterday = isDayBefore(date, now);
+    const sameWeek = isSameWeek(date, now);
+
+    if (isToday) {
+      return "היום";
+    } else if (isYesterday) {
       return "אתמול";
-    } else if (diffInDays < 7) {
+    } else if (sameWeek) {
       return date.toLocaleDateString("he-IL", { weekday: "long" });
     } else {
       return date.toLocaleDateString("he-IL", { month: "long", day: "numeric" });
@@ -120,35 +153,42 @@ export default function ChatMessages({ setMessagesFromDB, messagesFromDB, newMes
     for (let m of messagesArray) {
       if (!isSameDate(currentTime, m.timestamp)) {
         currentTime = m.timestamp;
-        addDate(m.timestamp);
-        if (currentState == isIncome(m)) {
-          currentContainer.push(<Message key={m.timestamp} message={m} />);
-        } else {
-          containers.push(
-            <div key={containers.length} className={currentState ? "income-messages" : "outcome-messages"}>
-              {currentContainer.map((msg) => msg)}
-            </div>
-          );
-          currentContainer = [];
-          currentContainer.push(<Message key={m.timestamp} message={m} />);
-          currentState = !currentState;
-        }
-      }
-      else{
-        if (currentState == isIncome(m)) {
-          currentContainer.push(<Message key={m.timestamp} message={m} />);
-        } else {
-          containers.push(
-            <div key={containers.length} className={currentState ? "income-messages" : "outcome-messages"}>
-              {currentContainer.map((msg) => msg)}
-            </div>
-          );
-          currentContainer = [];
-          currentContainer.push(<Message key={m.timestamp} message={m} />);
-          currentState = !currentState;
-        }
-      }
 
+        containers.push(
+          <div key={containers.length} className={currentState ? "income-messages" : "outcome-messages"}>
+            {currentContainer.map((msg) => msg)}
+          </div>
+        );
+        addDate(m.timestamp);
+
+        currentContainer = [];
+
+        if (currentState == isIncome(m)) {
+          currentContainer.push(<Message key={m.timestamp} message={m} />);
+        } else {
+          containers.push(
+            <div key={containers.length} className={currentState ? "income-messages" : "outcome-messages"}>
+              {currentContainer.map((msg) => msg)}
+            </div>
+          );
+          currentContainer = [];
+          currentContainer.push(<Message key={m.timestamp} message={m} />);
+          currentState = !currentState;
+        }
+      } else {
+        if (currentState == isIncome(m)) {
+          currentContainer.push(<Message key={m.timestamp} message={m} />);
+        } else {
+          containers.push(
+            <div key={containers.length} className={currentState ? "income-messages" : "outcome-messages"}>
+              {currentContainer.map((msg) => msg)}
+            </div>
+          );
+          currentContainer = [];
+          currentContainer.push(<Message key={m.timestamp} message={m} />);
+          currentState = !currentState;
+        }
+      }
     }
 
     containers.push(
